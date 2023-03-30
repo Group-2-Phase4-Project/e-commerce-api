@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :new_arrivals
+  resources :users
   resources :categories
   resources :orders
   resource :cart, only: [:show, :update, :destroy]
