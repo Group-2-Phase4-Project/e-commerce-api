@@ -22,81 +22,89 @@
 # NewArrival.create([{name: "Sneakers"},{price: 2500},{category: Category.find_by(name: 'Male')},{description:"Men's Running Shoes"},{image_url:"https://img.abercrombie.com/is/image/anf/KIC_122-3658-1342-218_model1?policy=product-medium"},{available: 25}])
 # NewArrival.create([{name: "Jeans"},{price: 500},{category: Category.find_by(name: 'Female')},{description:"Women's High Waist Skinny Jeans"},{image_url:"https://img.abercrombie.com/is/image/anf/KIC_122-3658-1342-218_model1?policy=product-medium"},{available: 45}])
 
-Category.create(name: 'Male')
-Category.create(name: 'Female')
+Category.create(id: 1, name: 'Male')
+Category.create(id: 2, name: 'Female')
 
-Product.create(
+
+
+
+
+
+product1 = Product.create!(
   name: "T-shirt",
   price: 500,
-  category: Category.find_by(name: 'Male'),
   description: "Men's Classic Fit Cotton T-shirt",
   image_url: "https://img.abercrombie.com/is/image/anf/KIC_122-3658-1342-218_model1?policy=product-medium",
   available: 25,
-  user_id: 1
+  category_id: 1
+
 )
 
-Product.create(
+product2 = Product.create!(
   name: "Hoodie",
   price: 1500,
-  category: Category.find_by(name: 'Female'),
   description: "Women's Fleece Pullover Hoodie",
   image_url: "https://img.abercrombie.com/is/image/anf/KIC_122-3658-1342-218_model1?policy=product-medium",
   available: 55,
-  user_id: 3
+  category_id: 2
+
 )
 
-Product.create(
+product3 = Product.create!(
   name: "Sneakers",
   price: 2500,
-  category: Category.find_by(name: 'Male'),
   description: "Men's Running Shoes",
   image_url: "https://img.abercrombie.com/is/image/anf/KIC_122-3658-1342-218_model1?policy=product-medium",
   available: 25,
-  user_id: 4
+  category_id: 1
+
 )
 
-Product.create(
+product4 = Product.create!(
   name: "Jeans",
   price: 500,
-  category: Category.find_by(name: 'Female'),
   description: "Women's High Waist Skinny Jeans",
   image_url: "https://img.abercrombie.com/is/image/anf/KIC_122-3658-1342-218_model1?policy=product-medium",
   available: 45,
-  user_id: 5
+  category_id: 2
+
 )
 
-NewArrival.create(
+
+na1= NewArrival.create!(
   name: "T-shirt",
   price: 500,
   category: Category.find_by(name: 'Male'),
   description: "Men's Classic Fit Cotton T-shirt",
   image_url: "https://img.abercrombie.com/is/image/anf/KIC_122-3658-1342-218_model1?policy=product-medium",
-  available: 25
+  category_id: 1,
+  available: 20
+
 )
 
-NewArrival.create(
+na2 = NewArrival.create!(
   name: "Hoodie",
   price: 1500,
-  category: Category.find_by(name: 'Female'),
   description: "Women's Fleece Pullover Hoodie",
   image_url: "https://img.abercrombie.com/is/image/anf/KIC_122-3658-1342-218_model1?policy=product-medium",
+  category_id: 2,
   available: 55
 )
 
-NewArrival.create(
+na3 = NewArrival.create!(
   name: "Sneakers",
   price: 2500,
-  category: Category.find_by(name: 'Male'),
   description: "Men's Running Shoes",
   image_url: "https://img.abercrombie.com/is/image/anf/KIC_122-3658-1342-218_model1?policy=product-medium",
+  category_id: 1,
   available: 25
 )
 
-NewArrival.create(
+na4 = NewArrival.create!(
   name: "Jeans",
   price: 500,
-  category: Category.find_by(name: 'Female'),
   description: "Women's High Waist Skinny Jeans",
   image_url: "https://img.abercrombie.com/is/image/anf/KIC_122-3658-1342-218_model1?policy=product-medium",
+  category_id: 2,
   available: 45
 )
