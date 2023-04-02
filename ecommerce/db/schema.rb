@@ -10,14 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_30_141326) do
-  create_table "carts", force: :cascade do |t|
-    t.string "product"
-    t.integer "quantity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
+ActiveRecord::Schema[7.0].define(version: 2023_04_01_173814) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -26,47 +19,37 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_30_141326) do
 
   create_table "new_arrivals", force: :cascade do |t|
     t.string "name"
-    t.float "price"
-    t.string "category"
     t.text "description"
+    t.decimal "price"
     t.string "image_url"
     t.integer "available"
+    t.integer "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "category_id", null: false
     t.index ["category_id"], name: "index_new_arrivals_on_category_id"
   end
 
-  create_table "orders", force: :cascade do |t|
-    t.string "cart_data"
-    t.integer "amount"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "products", force: :cascade do |t|
-    t.string "name"
-    t.float "price"
     t.string "category"
+    t.string "name"
+    t.decimal "price"
     t.text "description"
     t.string "image_url"
     t.integer "available"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "category_id", null: false
+    t.integer "category_id"
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
+    t.string "name"
     t.string "email"
     t.string "password_digest"
-    t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "address"
   end
 
   add_foreign_key "new_arrivals", "categories"
-  add_foreign_key "products", "categories"
 end
